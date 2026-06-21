@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class StudentProfile {
     String name;
     String branch;
@@ -10,8 +12,8 @@ class StudentProfile {
     int internshipApplications;
 
     StudentProfile(String name, String branch, int year, double cgpa,
-                   int attendancePercentage, int projects, int certificates,
-                   int hackathons, int internshipApplications) {
+            int attendancePercentage, int projects, int certificates,
+            int hackathons, int internshipApplications) {
 
         this.name = name;
         this.branch = branch;
@@ -51,11 +53,9 @@ class StudentProfile {
         if (projects < 1) {
             System.out.println("- Add at least one project to GitHub.");
         }
-
         if (certificates < 1) {
             System.out.println("- Complete at least one meaningful certificate.");
         }
-
         if (hackathons < 1) {
             System.out.println("- Try participating in one hackathon/ideathon.");
         }
@@ -78,10 +78,36 @@ public class Main {
                 0,
                 1,
                 2,
-                0
-        );
+                0);
 
-        student.displayProfile();
-        student.showAttentionAreas();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n===== MENU =====");
+            System.out.println("1. Show Profile");
+            System.out.println("2. Show Attention Areas");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    student.displayProfile();
+                    break;
+
+                case 2:
+                    student.showAttentionAreas();
+                    break;
+
+                case 3:
+                    System.out.println("Thank you for using Engineering Survival OS!");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
     }
 }
+
