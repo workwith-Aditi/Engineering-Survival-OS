@@ -6,7 +6,7 @@ class StudentProfile {
     int year;
     double cgpa;
     int attendancePercentage;
-    int projects;
+    int no_of_projects;
     int certificates;
     int hackathons;
     int internshipApplications;
@@ -20,7 +20,7 @@ class StudentProfile {
         this.year = year;
         this.cgpa = cgpa;
         this.attendancePercentage = attendancePercentage;
-        this.projects = projects;
+        this.no_of_projects = projects;
         this.certificates = certificates;
         this.hackathons = hackathons;
         this.internshipApplications = internshipApplications;
@@ -30,10 +30,10 @@ class StudentProfile {
         System.out.println("===== Engineering Survival OS =====");
         System.out.println("Name: " + name);
         System.out.println("Branch: " + branch);
-        System.out.println("Year: " + year);
+        System.out.println("Year( in integer): " + year);
         System.out.println("CGPA: " + cgpa);
         System.out.println("Attendance: " + attendancePercentage + "%");
-        System.out.println("Projects: " + projects);
+        System.out.println("Projects: " + no_of_projects);
         System.out.println("Certificates: " + certificates);
         System.out.println("Hackathons: " + hackathons);
         System.out.println("Internship Applications: " + internshipApplications);
@@ -50,7 +50,7 @@ class StudentProfile {
             System.out.println("- Attendance is below safe level.");
         }
 
-        if (projects < 1) {
+        if (no_of_projects < 1) {
             System.out.println("- Add at least one project to GitHub.");
         }
         if (certificates < 1) {
@@ -69,19 +69,46 @@ class StudentProfile {
 public class Main {
     public static void main(String[] args) {
 
-        StudentProfile student = new StudentProfile(
-                "Aditi",
-                "Information Technology",
-                2,
-                8.5,
-                78,
-                0,
-                1,
-                2,
-                0);
-
         Scanner sc = new Scanner(System.in);
 
+        System.out.print( "Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Branch: ");
+        String branch = sc.nextLine();
+
+        System.out.print("Enter Year: ");
+        int year = sc.nextInt();
+
+        System.out.print("Enter CGPA: ");
+        double cgpa = sc.nextDouble();
+
+        System.out.print("Enter Attendance Percentage: ");
+        int attendancePercentage = sc.nextInt();
+
+        System.out.print("Enter Number of Projects: ");
+        int projects = sc.nextInt();
+
+        System.out.print("Enter Number of Certificates: ");
+        int certificates = sc.nextInt();
+
+        System.out.print("Enter Number of Hackathons: ");
+        int hackathons = sc.nextInt();
+
+        System.out.print("Enter Internship Applications: ");
+        int internshipApplications = sc.nextInt();
+
+        StudentProfile student = new StudentProfile(
+                name,
+                branch,
+                year,
+                cgpa,
+                attendancePercentage,
+                projects,
+                certificates,
+                hackathons,
+                internshipApplications
+        );
         while (true) {
             System.out.println("\n===== MENU =====");
             System.out.println("1. Show Profile");
